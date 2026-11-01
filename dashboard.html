@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | PixelCraft Studio</title>
+
+    <link rel="icon" href="logo.svg">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="PixelCraft Studio">
+                <span>
+                    PIXELCRAFT
+                    <small>STUDIO</small>
+                </span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active" data-view-link="overview">
+                   <span>◈</span> Overview
+                    </a>
+
+                    <a href="#enquiries" class="nav-link" data-view-link="enquiries">
+                    <span>✉</span> Enquiries
+                    </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" class="website-link">
+                    ↗ View Website
+                </a>
+
+                <button id="logoutButton" class="logout-btn">
+                    ↪ Logout
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">PIXELCRAFT STUDIO / ADMIN</p>
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="admin-profile">
+                    <div class="profile-avatar">P</div>
+                    <div>
+                        <strong>Administrator</strong>
+                        <small>Studio Admin</small>
+                    </div>
+                </div>
+
+            </header>
+
+
+            
+<!-- OVERVIEW -->
+<section id="overview" class="dashboard-section view-section active-view" data-view="overview">
+
+    <!-- WELCOME HEADING -->
+    <div class="welcome-heading">
+        <div>
+            <h2>Welcome Back! 👋</h2>
+            <p>Here's what's happening with your studio.</p>
+        </div>
+    </div>
+
+    <!-- STATISTICS -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">✉</div>
+            <p>Total Enquiries</p>
+            <h3 id="totalEnquiries">—</h3>
+            <small>All received enquiries</small>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">◷</div>
+            <p>New Enquiries</p>
+            <h3 id="newEnquiries">—</h3>
+            <small>Awaiting your response</small>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">↗</div>
+            <p>Contacted</p>
+            <h3 id="contactedEnquiries">—</h3>
+            <small>Clients contacted</small>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">✓</div>
+            <p>Completed</p>
+            <h3 id="completedEnquiries">—</h3>
+            <small>Successfully completed</small>
+        </div>
+
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="recent-activity-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Recent Activity</h2>
+                <p>Latest customer enquiries received by your studio.</p>
+            </div>
+        </div>
+
+        <div class="activity-list" id="recentActivityList">
+            <p class="empty-state">Loading recent activity...</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- ENQUIRIES -->
+            <section id="enquiries" class="dashboard-section enquiries-section view-section" data-view="enquiries">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CLIENT COMMUNICATION</p>
+                        <h2>Recent Enquiries</h2>
+                        <p>Manage and review customer enquiries.</p>
+                    </div>
+
+                    <button id="refreshButton" class="refresh-btn">
+                        ↻ Refresh
+                    </button>
+                </div>
+
+
+                <div id="dashboardStatus" aria-live="polite"></div>
+
+                <!-- ENQUIRY SEARCH & FILTER -->
+<div class="enquiry-toolbar">
+
+    <div class="search-box">
+        <span>⌕</span>
+        <input
+            type="search"
+            id="enquirySearch"
+            placeholder="Search by name, email or service..."
+        >
+    </div>
+
+    <select id="statusFilter" class="status-filter">
+        <option value="All">All Statuses</option>
+        <option value="New">New</option>
+        <option value="Contacted">Contacted</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <button type="button" id="exportEnquiriesBtn" class="export-btn">
+    ↓ Export CSV
+</button>
+
+</div>
+
+
+                <div class="table-container">
+
+                    <table class="enquiries-table">
+
+                        <thead>
+                            <tr>
+                            <th>CLIENT</th>
+                            <th>SERVICE</th>
+                            <th>BUDGET</th>
+                            <th>DATE</th>
+                            <th>MESSAGE</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="enquiriesTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            
+<!-- ENQUIRY DETAILS MODAL -->
+<div class="modal-overlay" id="enquiryModal" aria-hidden="true">
+
+    <div class="enquiry-modal">
+
+        <div class="modal-header">
+            <div>
+                <p class="eyebrow">CLIENT INFORMATION</p>
+                <h2>Enquiry Details</h2>
+            </div>
+
+            <button type="button" id="closeEnquiryModal" class="modal-close">
+                &times;
+            </button>
+        </div>
+
+        <div class="modal-body">
+
+            <div class="detail-item">
+                <label>Customer Name</label>
+                <p id="detailName">—</p>
+            </div>
+
+            <div class="detail-item">
+            <label>Email Address</label>
+            <p id="detailEmail">—</p>
+            </div>
+
+            <div class="detail-item">
+            <label>Phone Number</label>
+            <p id="detailPhone">—</p>
+            </div>
+
+            <div class="detail-item">
+    <label>Requested Service</label>
+    <p id="detailService">—</p>
+</div>
+
+            <div class="detail-item">
+                <label>Budget</label>
+                <p id="detailBudget">—</p>
+            </div>
+
+            <div class="detail-item">
+                <label>Enquiry Date</label>
+                <p id="detailDate">—</p>
+            </div>
+
+            <div class="detail-item">
+                <label>Customer Message</label>
+                <p id="detailMessage" class="detail-message">—</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+            <footer class="dashboard-footer">
+                © 2026 PixelCraft Studio. All rights reserved.
+                <span>Built with ✦ by PixelCraft</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>

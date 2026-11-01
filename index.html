@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="PixelCraft Studio creates websites, graphics and digital solutions.">
+
+    <title>PixelCraft Studio | Ideas into Digital Reality</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+</button>
+
+
+<body>
+
+    
+<div class="scroll-progress" id="scrollProgress"></div>
+
+
+    <!-- Animated Background -->
+    <div class="background-glow"></div>
+
+    
+<div class="site-loader" id="siteLoader">
+    <div class="loader-content">
+
+    <svg class="pc-logo"
+         viewBox="0 0 500 500"
+         xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+            <linearGradient id="logoPurple" x1="100" y1="100" x2="260" y2="350">
+                <stop stop-color="#E879F9"/>
+                <stop offset="0.5" stop-color="#8B5CF6"/>
+                <stop offset="1" stop-color="#4C1D95"/>
+            </linearGradient>
+
+            <linearGradient id="logoCyan" x1="250" y1="150" x2="400" y2="350">
+                <stop stop-color="#67E8F9"/>
+                <stop offset="0.5" stop-color="#06B6D4"/>
+                <stop offset="1" stop-color="#155E75"/>
+            </linearGradient>
+
+            <linearGradient id="logoOrbit" x1="50" y1="250" x2="450" y2="250">
+                <stop stop-color="#A855F7"/>
+                <stop offset="1" stop-color="#22D3EE"/>
+            </linearGradient>
+
+            <filter id="logoGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="7" result="blur"/>
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <g class="logo-orbit" filter="url(#logoGlow)">
+            <ellipse cx="250" cy="245" rx="190" ry="78"
+                     stroke="url(#logoOrbit)"
+                     stroke-width="3"
+                     transform="rotate(-20 250 245)"/>
+        </g>
+
+        <g class="logo-p" filter="url(#logoGlow)">
+            <path d="M145 345 V145 H235
+                     Q295 145 295 205
+                     Q295 265 235 265 H145"
+                  stroke="url(#logoPurple)"
+                  stroke-width="25"
+                  stroke-linecap="square"
+                  stroke-linejoin="bevel"/>
+        </g>
+
+        <g class="logo-c" filter="url(#logoGlow)">
+            <path d="M365 190
+                     Q340 155 300 155
+                     Q225 155 225 245
+                     Q225 335 300 335
+                     Q340 335 365 300"
+                  stroke="url(#logoCyan)"
+                  stroke-width="25"
+                  stroke-linecap="square"
+                  stroke-linejoin="bevel"/>
+        </g>
+
+        <g class="logo-pixels" filter="url(#logoGlow)">
+            <rect x="85" y="125" width="15" height="15" fill="#C084FC"/>
+            <rect x="105" y="95" width="10" height="10" fill="#A855F7"/>
+            <rect x="390" y="135" width="14" height="14" fill="#22D3EE"/>
+            <rect x="410" y="170" width="9" height="9" fill="#67E8F9"/>
+            <rect x="385" y="350" width="12" height="12" fill="#06B6D4"/>
+            <rect x="110" y="370" width="10" height="10" fill="#C084FC"/>
+        </g>
+
+        <circle cx="250" cy="245" r="5"
+                fill="white" filter="url(#logoGlow)"/>
+
+    </svg>
+
+    
+    <h2 class="logo-brand-name">PIXELCRAFT <span>STUDIO</span></h2>
+    <p class="logo-tagline">IDEAS INTO DIGITAL REALITY</p>
+
+    <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+    </div>
+
+    <p class="loader-status">LOADING CREATIVITY...</p>
+
+    </div>
+</div>
+
+
+
+   
+<!-- Header -->
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <img src="logo.svg" alt="PixelCraft Studio Logo">
+
+        <span class="logo-text">
+            PIXELCRAFT
+            <small>STUDIO</small>
+        </span>
+    </a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="floating-pixel pixel-one"></div>
+        <div class="floating-pixel pixel-two"></div>
+        <div class="floating-pixel pixel-three"></div>
+
+        <div class="hero-content reveal">
+
+            <p class="eyebrow">
+                ✦ CREATIVE DIGITAL STUDIO
+            </p>
+
+            <h1>
+                Ideas into
+                <span>Digital Reality.</span>
+            </h1>
+
+            <p class="hero-description">
+                We turn imagination into meaningful
+                digital experiences through creativity,
+                technology and design.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#services" class="primary-btn">
+                    Explore Our Services ↗
+                </a>
+
+                <a href="#contact" class="secondary-btn">
+                    Let's Talk
+                </a>
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            SCROLL TO EXPLORE
+            <span>↓</span>
+        </div>
+
+    </section>
+
+    
+<!-- ANIMATED SERVICE TICKER -->
+<section class="service-ticker">
+    <div class="ticker-track">
+        <span>WEB DEVELOPMENT ✦</span>
+        <span>GRAPHIC DESIGN ✦</span>
+        <span>CREATIVE IDEAS ✦</span>
+        <span>DIGITAL SOLUTIONS ✦</span>
+        <span>WEB DEVELOPMENT ✦</span>
+        <span>GRAPHIC DESIGN ✦</span>
+        <span>CREATIVE IDEAS ✦</span>
+        <span>DIGITAL SOLUTIONS ✦</span>
+    </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects" id="projects">
+
+    <div class="section-heading">
+        <span class="eyebrow">OUR CREATIVE WORK</span>
+        <h2>Ideas We've <span>Imagined.</span></h2>
+        <p>A glimpse into the digital experiences we can create.</p>
+    </div>
+
+    <div class="project-grid">
+
+        <!-- PROJECT 01 -->
+        <article class="project-card">
+            <div class="project-preview preview-one">
+                <div class="preview-window">
+                    <div class="window-dots">● ● ●</div>
+                    <h3>YOUR BRAND.<br>YOUR IDENTITY.</h3>
+                    <p>Make your first impression unforgettable.</p>
+                    <div class="preview-button">Explore More ↗</div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div>
+                    <span>01 / WEB DESIGN CONCEPT</span>
+                    <h3>Brand Experience</h3>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project-card">
+            <div class="project-preview preview-two">
+                <div class="poster-design">
+                    <span>CREATIVE</span>
+                    <h3>THINK<br>BEYOND.</h3>
+                    <p>Ideas have no limits.</p>
+                </div>
+            </div>
+            <div class="project-info">
+                <div>
+                    <span>02 / GRAPHIC DESIGN CONCEPT</span>
+                    <h3>Creative Poster</h3>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 03 -->
+        <article class="project-card">
+            <div class="project-preview preview-three">
+                <div class="document-design">
+                    <div class="document-icon">CV</div>
+                    <h3>YOUR NEXT<br>OPPORTUNITY.</h3>
+                    <p>Present your best self.</p>
+                    <div class="document-lines"></div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div>
+                    <span>03 / DOCUMENT DESIGN CONCEPT</span>
+                    <h3>Professional Resume</h3>
+                </div>
+                <span class="project-arrow">↗</span>
+            </div>
+        </article>
+
+    </div>
+
+    <p class="project-note">
+        These are creative concept previews, not completed client projects.
+    </p>
+
+</section>
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+
+        <div class="section-heading reveal">
+            <p class="eyebrow">WHAT WE DO</p>
+            <h2>Creative solutions.<br>
+                <span>Endless possibilities.</span>
+            </h2>
+        </div>
+
+        <div class="service-grid">
+
+            <article class="service-card reveal">
+                <span class="service-number">01</span>
+                <div class="service-icon">⌘</div>
+                <h3>Web Development</h3>
+                <p>
+                    Responsive websites and digital
+                    experiences built around your ideas.
+                </p>
+                <span class="card-arrow">↗</span>
+            </article>
+
+            <article class="service-card reveal">
+                <span class="service-number">02</span>
+                <div class="service-icon">✳</div>
+                <h3>Graphic Design</h3>
+                <p>
+                    Creative visuals, posters, banners
+                    and social media designs.
+                </p>
+                <span class="card-arrow">↗</span>
+            </article>
+
+            <article class="service-card reveal">
+                <span class="service-number">03</span>
+                <div class="service-icon">▤</div>
+                <h3>Document Services</h3>
+                <p>
+                    Professional resumes, presentations
+                    and document formatting.
+                </p>
+                <span class="card-arrow">↗</span>
+            </article>
+
+            <article class="service-card reveal">
+                <span class="service-number">04</span>
+                <div class="service-icon">✧</div>
+                <h3>Digital Solutions</h3>
+                <p>
+                    Small programming tasks and
+                    customized digital assistance.
+                </p>
+                <span class="card-arrow">↗</span>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section class="about reveal" id="about">
+        <p class="eyebrow">A LITTLE ABOUT US</p>
+
+        <h2>
+            We believe every great idea
+            deserves a <span>digital identity.</span>
+        </h2>
+
+        <p>
+            PixelCraft Studio combines creativity
+            and technology to help turn your ideas
+            into reality.
+        </p>
+    </section>
+
+   
+<form id="contactForm">
+
+    <div class="form-group">
+        <label for="contactName">Full Name</label>
+        <input type="text" id="contactName" name="name"
+               placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="contactEmail">Email Address</label>
+        <input type="email" id="contactEmail" name="email"
+               placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="contactPhone">Phone Number (Optional)</label>
+        <input type="tel" id="contactPhone" name="phone"
+               placeholder="Enter your WhatsApp number">
+    </div>
+
+    <div class="form-group">
+        <label for="contactService">Select Service</label>
+        <select id="contactService" name="service" required>
+            <option value="">Choose a service</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Document Services">Document Services</option>
+            <option value="Digital Solutions">Digital Solutions</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="contactBudget">Project Budget (Optional)</label>
+        <select id="contactBudget" name="budget">
+            <option value="Not specified">Select your budget</option>
+            <option value="Below ₹1,000">Below ₹1,000</option>
+            <option value="₹1,000 – ₹5,000">₹1,000 – ₹5,000</option>
+            <option value="₹5,000 – ₹10,000">₹5,000 – ₹10,000</option>
+            <option value="Above ₹10,000">Above ₹10,000</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="contactMessage">Project Details</label>
+        <textarea id="contactMessage" name="message"
+                  placeholder="Tell us about your project..."
+                  rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="primary-btn">
+        Submit Enquiry ↗
+    </button>
+
+    <p id="formStatus" aria-live="polite"></p>
+
+</form>
+
+
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        
+        <h3>PIXELCRAFT <span>STUDIO</span></h3>
+
+        <p>Ideas into Digital Reality.</p>
+
+        <p class="copyright">
+            © 2026 PixelCraft Studio. All rights reserved.
+        </p>
+        <p class="admin-access">
+    <a href="admin.html">Admin Login</a>
+</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

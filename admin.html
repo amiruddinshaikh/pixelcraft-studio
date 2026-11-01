@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | PixelCraft Studio</title>
+
+    <link rel="icon" href="logo.svg">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <div class="login-card">
+
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="PixelCraft Studio">
+                <span>
+                    PIXELCRAFT
+                    <small>STUDIO</small>
+                </span>
+            </a>
+
+            <div class="login-heading">
+                <div class="admin-icon">✦</div>
+
+                <p class="eyebrow">PRIVATE ACCESS</p>
+
+                <h1>Welcome <span>Back.</span></h1>
+
+                <p>Sign in to your studio dashboard.</p>
+            </div>
+
+            <form id="adminLoginForm">
+
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email</label>
+
+                    <input
+                    type="email"
+                    id="adminEmail"
+                    name="email"
+                    placeholder="Enter your admin email"
+                    autocomplete="username"
+                     required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="adminPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <p id="loginStatus" aria-live="polite"></p>
+
+                <button type="submit" class="login-btn">
+                    Access Dashboard ↗
+                </button>
+
+            </form>
+
+            <p class="security-note">
+                <span>✦</span> Authorized personnel only
+            </p>
+
+            <a href="index.html" class="back-link">
+                ← Back to Website
+            </a>
+
+        </div>
+
+        <footer>
+            © 2026 PixelCraft Studio. All rights reserved.
+        </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>

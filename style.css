@@ -1,0 +1,2309 @@
+
+/* =================================
+   PIXELCRAFT STUDIO
+   CSS FOUNDATION
+================================= */
+
+/* 1. GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+
+/* 2. UNIVERSAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 3. ROOT VARIABLES */
+:root {
+    --bg-primary: #08090f;
+    --bg-secondary: #10121c;
+    --bg-card: #141725;
+
+    --text-primary: #f5f5f7;
+    --text-secondary: #a1a4b5;
+
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #06b6d4;
+
+    --gradient-main: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+
+/* 4. HTML & BODY */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    font-family: var(--font-body);
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/* 5. COMMON ELEMENTS */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--accent-primary);
+    color: white;
+}
+
+
+/* =================================
+   STEP 2 — PREMIUM NAVBAR
+================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 80px;
+    padding: 0 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 9, 15, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        padding 0.3s ease;
+}
+
+/* BRAND NAME */
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    color: var(--text-primary);
+}
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+}
+
+/* HOVER UNDERLINE */
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gradient-main);
+    border-radius: 10px;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* SCROLLED NAVBAR */
+
+.navbar.scrolled {
+    background: rgba(8, 9, 15, 0.94);
+    border-bottom-color: rgba(139, 92, 246, 0.2);
+}
+
+/* MOBILE NAVBAR */
+
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* =================================
+   STEP 3 — CINEMATIC HERO SECTION
+================================= */
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    padding: 100px 8% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(91, 52, 180, 0.16),
+            transparent 55%
+        ),
+        var(--bg-primary);
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+}
+
+.hero-content .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 25px;
+    padding: 9px 18px;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 50px;
+
+    background: rgba(139, 92, 246, 0.08);
+
+    color: #c4b5fd;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* MAIN HEADING */
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -4px;
+
+    color: var(--text-primary);
+}
+
+.hero h1 span {
+    display: inline-block;
+
+    background: linear-gradient(
+        110deg,
+        #a78bfa,
+        #22d3ee,
+        #a78bfa
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: heroGradient 5s linear infinite;
+}
+
+@keyframes heroGradient {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* DESCRIPTION */
+
+.hero p {
+    max-width: 680px;
+    margin: 28px auto 35px;
+
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.8;
+}
+
+/* HERO BUTTONS */
+
+.hero .primary-btn,
+.hero .secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 52px;
+    padding: 0 28px;
+
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.hero .primary-btn {
+    background: var(--gradient-main);
+    color: white;
+
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.25);
+}
+
+.hero .primary-btn:hover {
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+    transform: translateY(-3px);
+}
+
+.hero .secondary-btn {
+    margin-left: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+
+    color: var(--text-primary);
+}
+
+.hero .secondary-btn:hover {
+    border-color: var(--accent-primary);
+    background: rgba(139, 92, 246, 0.1);
+
+    transform: translateY(-3px);
+}
+
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+
+    animation: scrollFloat 2s ease-in-out infinite;
+}
+
+@keyframes scrollFloat {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 9px);
+    }
+}
+
+/* MOBILE HERO */
+
+@media (max-width: 700px) {
+    .hero {
+        min-height: calc(100svh - 70px);
+        padding: 90px 6% 100px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        margin: 22px auto 28px;
+    }
+
+    .hero .primary-btn,
+    .hero .secondary-btn {
+        min-height: 48px;
+        padding: 0 19px;
+        font-size: 0.85rem;
+    }
+
+    .hero .secondary-btn {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero .primary-btn,
+    .hero .secondary-btn {
+        padding: 0 14px;
+        font-size: 0.78rem;
+    }
+}
+
+
+/* =========================================
+   STEP 4 — AMBIENT BACKGROUND EFFECTS
+========================================= */
+
+/* HERO AMBIENT LIGHT */
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(111, 54, 210, 0.13) 0%,
+        rgba(36, 153, 220, 0.06) 35%,
+        transparent 70%
+    );
+
+    filter: blur(45px);
+    pointer-events: none;
+    z-index: 0;
+
+    animation: ambientPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+    0% {
+        transform: translate(-55%, -48%) scale(0.9);
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: translate(-45%, -52%) scale(1.15);
+        opacity: 1;
+    }
+}
+
+
+/* SECONDARY HERO LIGHT */
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 15%;
+    right: 5%;
+
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.09),
+        transparent 70%
+    );
+
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+
+    animation: secondaryGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes secondaryGlow {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-100px, 80px);
+    }
+}
+
+
+/* FLOATING PIXELS */
+
+.floating-pixel {
+    position: absolute;
+    z-index: 1;
+
+    pointer-events: none;
+
+    border: 1px solid rgba(167, 139, 250, 0.35);
+
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.2),
+        rgba(6, 182, 212, 0.08)
+    );
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:
+        0 0 25px rgba(139, 92, 246, 0.12),
+        inset 0 0 15px rgba(255, 255, 255, 0.04);
+
+    animation: pixelFloat 7s ease-in-out infinite;
+}
+
+.pixel-one {
+    width: 55px;
+    height: 55px;
+
+    top: 22%;
+    left: 12%;
+
+    border-radius: 14px;
+    transform: rotate(18deg);
+}
+
+.pixel-two {
+    width: 35px;
+    height: 35px;
+
+    top: 65%;
+    right: 15%;
+
+    border-radius: 50%;
+    animation-delay: -2s;
+}
+
+.pixel-three {
+    width: 22px;
+    height: 22px;
+
+    top: 25%;
+    right: 22%;
+
+    border-radius: 7px;
+    animation-delay: -4s;
+}
+
+@keyframes pixelFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -25px;
+    }
+}
+
+
+/* MOUSE FOLLOW GLOW */
+
+.background-glow {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    left: 0;
+    top: 0;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.09),
+        rgba(6, 182, 212, 0.035) 45%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+    z-index: 0;
+
+    transform: translate(-50%, -50%);
+    filter: blur(15px);
+}
+
+
+/* REDUCE EFFECTS ON SMALL SCREENS */
+
+@media (max-width: 700px) {
+    .pixel-one {
+        width: 35px;
+        height: 35px;
+        left: 6%;
+    }
+
+    .pixel-two {
+        right: 7%;
+    }
+
+    .pixel-three {
+        right: 10%;
+    }
+
+    .hero::before {
+        width: 400px;
+        height: 400px;
+    }
+
+    .background-glow {
+        display: none;
+    }
+}
+
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero::before,
+    .hero::after,
+    .floating-pixel {
+        animation: none !important;
+    }
+}
+
+
+/* =========================================
+   STEP 5 — INFINITE SERVICE TICKER
+========================================= */
+
+.service-ticker {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    padding: 25px 0;
+
+    background: rgba(139, 92, 246, 0.045);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* LEFT AND RIGHT FADE */
+
+.service-ticker::before,
+.service-ticker::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 100px;
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.service-ticker::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        var(--bg-primary),
+        transparent
+    );
+}
+
+.service-ticker::after {
+    right: 0;
+
+    background: linear-gradient(
+        to left,
+        var(--bg-primary),
+        transparent
+    );
+}
+
+/* MOVING TRACK */
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+    gap: 35px;
+
+    white-space: nowrap;
+
+    animation: tickerMove 28s linear infinite;
+}
+
+/* TICKER TEXT */
+
+.ticker-track span {
+    flex-shrink: 0;
+
+    color: var(--text-secondary);
+
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition: color 0.3s ease;
+}
+
+.ticker-track span:nth-child(4n + 1) {
+    color: #c4b5fd;
+}
+
+.ticker-track span:hover {
+    color: #22d3ee;
+}
+
+/* CONTINUOUS MOVEMENT */
+
+@keyframes tickerMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* PAUSE WHEN HOVERED */
+
+.service-ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .service-ticker {
+        padding: 20px 0;
+    }
+
+    .ticker-track {
+        gap: 24px;
+        animation-duration: 22s;
+    }
+
+    .ticker-track span {
+        font-size: 0.8rem;
+    }
+
+    .service-ticker::before,
+    .service-ticker::after {
+        width: 40px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+    }
+}
+
+
+/* =========================================
+   STEP 6 — PREMIUM 3D PROJECT GALLERY
+========================================= */
+
+/* SECTION */
+
+.projects {
+    position: relative;
+    padding: 120px 8%;
+    background: var(--bg-primary);
+}
+
+/* SECTION HEADING */
+
+.section-heading {
+    max-width: 750px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 15px 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    color: var(--text-primary);
+}
+
+.section-heading p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* PROJECT GRID */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+/* PROJECT CARD */
+
+.project-card {
+    position: relative;
+    min-width: 0;
+
+    padding: 15px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.015)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+
+    transform-style: preserve-3d;
+    transform: perspective(1100px)
+        rotateX(var(--tilt-x, 0deg))
+        rotateY(var(--tilt-y, 0deg));
+
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+
+    will-change: transform;
+}
+
+.project-card:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+
+    box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.09);
+}
+
+/* PREVIEW AREA */
+
+.project-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.15 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform-style: preserve-3d;
+
+    border-radius: 13px;
+    background: #10121c;
+
+    perspective: 1000px;
+}
+
+/* =========================================
+   PROJECT 1 — BRAND EXPERIENCE
+========================================= */
+
+.preview-one {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(59, 130, 246, 0.22),
+            transparent 65%
+        ),
+        linear-gradient(145deg, #101b32, #10121c);
+}
+
+.preview-window {
+    position: relative;
+
+    width: 82%;
+    min-height: 72%;
+    padding: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(35, 48, 75, 0.96),
+        rgba(14, 20, 38, 0.96)
+    );
+
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.4),
+        0 0 35px rgba(59, 130, 246, 0.12),
+        inset 0 1px rgba(255, 255, 255, 0.15);
+
+    transform: translateZ(45px) rotateY(-9deg) rotateX(5deg);
+
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .preview-window {
+    transform: translateZ(65px) rotateY(-5deg) rotateX(2deg);
+}
+
+/* BROWSER TOP BAR */
+
+.preview-window::before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 12px;
+    margin-bottom: 18px;
+
+    border-radius: 4px;
+
+    background:
+        radial-gradient(circle at 7px 6px, #fb7185 3px, transparent 4px),
+        radial-gradient(circle at 19px 6px, #fbbf24 3px, transparent 4px),
+        radial-gradient(circle at 31px 6px, #34d399 3px, transparent 4px),
+        rgba(255, 255, 255, 0.07);
+}
+
+.preview-window::after {
+    content: "";
+
+    position: absolute;
+    inset: 35px 12px 12px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(96, 165, 250, 0.14) 100%
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   PROJECT 2 — CREATIVE POSTER
+========================================= */
+
+.preview-two {
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(168, 85, 247, 0.23),
+            transparent 68%
+        ),
+        linear-gradient(145deg, #21132f, #11101c);
+}
+
+.poster-design {
+    position: relative;
+
+    width: 58%;
+    height: 78%;
+    padding: 22px 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: visible;
+
+    background: linear-gradient(
+        145deg,
+        #a855f7,
+        #6d28d9 55%,
+        #312e81
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 25px 40px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(168, 85, 247, 0.2);
+
+    transform: translateZ(45px) rotateY(9deg) rotateX(-5deg);
+
+    transition: transform 0.5s ease;
+}
+
+.poster-design::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transform: translateZ(5px);
+    pointer-events: none;
+}
+
+.project-card:hover .poster-design {
+    transform: translateZ(65px) rotateY(4deg) rotateX(-2deg);
+}
+
+/* =========================================
+   PROJECT 3 — PROFESSIONAL RESUME
+========================================= */
+
+.preview-three {
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(6, 182, 212, 0.14),
+            transparent 70%
+        ),
+        linear-gradient(145deg, #10212b, #10121c);
+}
+
+.document-design {
+    position: relative;
+
+    width: 57%;
+    min-height: 82%;
+    padding: 20px 18px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #e8edf5
+    );
+
+    color: #172033;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.5),
+        8px 10px 0 rgba(190, 205, 225, 0.18),
+        0 0 35px rgba(6, 182, 212, 0.12);
+
+    transform: translateZ(55px) rotateY(-8deg) rotateX(5deg);
+
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .document-design {
+    transform: translateZ(75px) rotateY(-3deg) rotateX(2deg);
+}
+
+/* PROJECT INFORMATION */
+
+.project-info {
+    position: relative;
+    padding: 23px 8px 10px;
+
+    transform: translateZ(20px);
+}
+
+.project-info h3 {
+    margin: 8px 0;
+
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.project-info .project-number {
+    color: #a78bfa;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* PROJECT LINKS */
+
+.project-card a {
+    color: inherit;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .projects {
+        padding: 100px 6%;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    .projects {
+        padding: 80px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .project-preview {
+        aspect-ratio: 1.2 / 1;
+    }
+
+    .project-card {
+        padding: 12px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .preview-window,
+    .poster-design,
+    .document-design {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================
+   STEP 7 — PREMIUM SERVICES SECTION
+========================================= */
+
+.services {
+    position: relative;
+    padding: 120px 8%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(139, 92, 246, 0.07),
+            transparent 55%
+        ),
+        var(--bg-primary);
+}
+
+/* SERVICES GRID */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+
+    max-width: 1450px;
+    margin: 55px auto 0;
+}
+
+/* SERVICE CARD */
+
+.service-card {
+    position: relative;
+    min-width: 0;
+    padding: 32px 25px;
+
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.015)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+
+    transform: translateY(0);
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+
+    overflow: hidden;
+}
+
+/* HOVER LIGHT */
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(139, 92, 246, 0.16);
+    filter: blur(45px);
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(139, 92, 246, 0.45);
+
+    background: linear-gradient(
+        145deg,
+        rgba(139, 92, 246, 0.10),
+        rgba(255, 255, 255, 0.025)
+    );
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(139, 92, 246, 0.07);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* SERVICE ICON */
+
+.service-card .service-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 55px;
+    height: 55px;
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 15px;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    color: #c4b5fd;
+    font-size: 1.5rem;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: translateY(-4px) rotate(-6deg);
+
+    background: rgba(139, 92, 246, 0.22);
+
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+/* SERVICE TITLE */
+
+.service-card h3 {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 12px;
+
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+/* SERVICE DESCRIPTION */
+
+.service-card p {
+    position: relative;
+    z-index: 1;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* OPTIONAL SERVICE LINK */
+
+.service-card a {
+    position: relative;
+    z-index: 1;
+
+    margin-top: auto;
+    padding-top: 20px;
+
+    color: #a78bfa;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.service-card a:hover {
+    color: #22d3ee;
+    letter-spacing: 0.5px;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+    .services {
+        padding: 100px 6%;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .services {
+        padding: 80px 5%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        margin-top: 38px;
+    }
+
+    .service-card {
+        min-height: 230px;
+        padding: 27px 23px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card::before,
+    .service-card .service-icon {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================
+   STEP 8 — PREMIUM ABOUT SECTION
+========================================= */
+
+.about {
+    position: relative;
+    padding: 130px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            ellipse at 85% 50%,
+            rgba(6, 182, 212, 0.07),
+            transparent 50%
+        ),
+        var(--bg-primary);
+}
+
+/* ABOUT CONTENT */
+
+.about > * {
+    position: relative;
+    z-index: 1;
+}
+
+.about {
+    overflow: hidden;
+}
+
+/* ABOUT HEADING */
+
+.about h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.about h2 span {
+    color: #a78bfa;
+}
+
+/* ABOUT PARAGRAPHS */
+
+.about p {
+    max-width: 780px;
+
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+/* ACCENT LINE */
+
+.about::before {
+    content: "";
+
+    position: absolute;
+    left: 8%;
+    top: 50%;
+
+    width: 3px;
+    height: 130px;
+
+    transform: translateY(-50%);
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to bottom,
+        #8b5cf6,
+        #06b6d4,
+        transparent
+    );
+
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+/* ABOUT HOVER EFFECT */
+
+.about p {
+    transition: color 0.3s ease;
+}
+
+.about p:hover {
+    color: #d4d4e0;
+}
+
+/* ABOUT LINKS */
+
+.about a {
+    color: #a78bfa;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.about a:hover {
+    color: #22d3ee;
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .about {
+        padding: 100px 7%;
+    }
+
+    .about::before {
+        left: 4%;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .about {
+        padding: 85px 7% 85px 10%;
+    }
+
+    .about::before {
+        left: 4%;
+        height: 100px;
+    }
+
+    .about h2 {
+        letter-spacing: -1px;
+    }
+
+    .about p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .about p,
+    .about a {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================
+   STEP 9 — PREMIUM CONTACT SECTION
+========================================= */
+
+.contact {
+    position: relative;
+    padding: 120px 8%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(139, 92, 246, 0.13),
+            transparent 65%
+        ),
+        #0b0c14;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* CONTACT HEADING */
+
+.contact h2 {
+    max-width: 800px;
+    margin: 0 auto 20px;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    color: var(--text-primary);
+}
+
+.contact h2 span {
+    background: var(--gradient-main);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* CONTACT DESCRIPTION */
+
+.contact p {
+    max-width: 600px;
+    margin: 0 auto 35px;
+
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* CONTACT EMAIL LINK */
+
+.contact a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 55px;
+    padding: 0 30px;
+
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    border-radius: 10px;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    color: #d8b4fe;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact a:hover {
+    transform: translateY(-5px);
+
+    background: rgba(139, 92, 246, 0.22);
+    border-color: #a78bfa;
+
+    box-shadow: 0 12px 35px rgba(139, 92, 246, 0.2);
+}
+
+/* CONTACT GLOW */
+
+.contact::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 45%;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #8b5cf6,
+        #06b6d4,
+        transparent
+    );
+
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .contact {
+        padding: 85px 6%;
+    }
+
+    .contact h2 {
+        letter-spacing: -1px;
+    }
+
+    .contact p {
+        font-size: 0.95rem;
+    }
+
+    .contact a {
+        max-width: 100%;
+        padding: 0 18px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .contact a {
+        transition: none !important;
+    }
+}
+
+
+
+/* =========================================
+   STEP 10 — PREMIUM FOOTER
+========================================= */
+
+footer {
+    position: relative;
+    padding: 30px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: #08090f;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* FOOTER TEXT */
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+/* FOOTER LINKS */
+
+footer a {
+    color: #a78bfa;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+footer a:hover {
+    color: #22d3ee;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+}
+
+/* FOOTER BRAND */
+
+footer .logo {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* MOBILE FOOTER */
+
+@media (max-width: 600px) {
+    footer {
+        padding: 25px 6%;
+
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    footer p {
+        font-size: 0.78rem;
+    }
+}
+
+/* FOOTER ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    footer a {
+        transition: none;
+    }
+}
+
+
+/* =========================================
+   STEP 11 — SCROLL REVEAL ANIMATIONS
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PROJECT CARD REVEAL */
+
+.project-card.reveal {
+    transform:
+        perspective(1100px)
+        translateY(35px)
+        rotateX(var(--tilt-x, 0deg))
+        rotateY(var(--tilt-y, 0deg));
+}
+
+.project-card.reveal.visible {
+    transform:
+        perspective(1100px)
+        translateY(0)
+        rotateX(var(--tilt-x, 0deg))
+        rotateY(var(--tilt-y, 0deg));
+}
+
+/* HERO CONTENT */
+
+.hero-content.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BUTTON INTERACTION */
+
+.primary-btn,
+.secondary-btn {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* KEYBOARD FOCUS */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #a78bfa;
+    outline-offset: 5px;
+    border-radius: 5px;
+}
+
+/* IMAGE AND CARD SMOOTHNESS */
+
+.project-preview,
+.service-card,
+.project-card {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .project-card.reveal,
+    .project-card.reveal.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+
+/* =========================================
+   STEP 12 — GLOBAL RESPONSIVE POLISH
+========================================= */
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    .services-grid {
+        gap: 18px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .hero {
+        padding-top: 75px;
+        padding-bottom: 95px;
+    }
+
+    .projects,
+    .services,
+    .about,
+    .contact {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .section-heading {
+        padding: 0 5px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.3rem;
+    }
+
+    .section-heading p {
+        font-size: 0.92rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-info p {
+        font-size: 0.85rem;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+    .hero h1 {
+        font-size: clamp(2.5rem, 12vw, 3.2rem);
+    }
+
+    .hero .primary-btn,
+    .hero .secondary-btn {
+        min-height: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        padding: 24px 20px;
+    }
+
+    .contact h2 {
+        font-size: 2.3rem;
+    }
+}
+
+/* TOUCH DEVICE REFINEMENT */
+
+@media (hover: none) {
+    .service-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover {
+        box-shadow: none;
+    }
+}
+
+/* GLOBAL REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================
+   STEP 14 — 3D PROJECT DEPTH REPAIR
+========================================= */
+
+/* SHARED 3D ENVIRONMENT */
+
+.project-card {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+}
+
+.project-preview {
+    perspective: 1200px;
+    perspective-origin: 50% 45%;
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+/* =========================================
+   01 — BRAND EXPERIENCE
+========================================= */
+
+.preview-window {
+    position: relative;
+    z-index: 2;
+
+    transform:
+        translate3d(0, 0, 65px)
+        rotateY(-13deg)
+        rotateX(7deg);
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    border: 1px solid rgba(125, 190, 255, 0.45);
+
+    box-shadow:
+        0 35px 45px rgba(0, 0, 0, 0.45),
+        0 18px 0 -4px #172b48,
+        0 22px 0 -5px #0d1a30,
+        0 0 45px rgba(59, 130, 246, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+
+    transition:
+        transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 0.65s ease;
+}
+
+.project-card:hover .preview-window {
+    transform:
+        translate3d(0, -8px, 85px)
+        rotateY(-7deg)
+        rotateX(3deg);
+
+    box-shadow:
+        0 45px 55px rgba(0, 0, 0, 0.5),
+        0 20px 0 -4px #172b48,
+        0 25px 0 -5px #0d1a30,
+        0 0 55px rgba(59, 130, 246, 0.32),
+        inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+/* BROWSER CONTENT */
+
+.preview-window h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 22px 0 12px;
+
+    color: #f5f8ff;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.preview-window p {
+    position: relative;
+    z-index: 2;
+
+    color: #aebdd5;
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.preview-button {
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 13px;
+
+    border: 1px solid rgba(96, 165, 250, 0.5);
+    border-radius: 6px;
+
+    color: #dbeafe;
+    background: rgba(59, 130, 246, 0.15);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   02 — CREATIVE POSTER
+========================================= */
+
+.poster-design {
+    position: relative;
+    z-index: 2;
+
+    transform:
+        translate3d(0, 0, 65px)
+        rotateY(13deg)
+        rotateX(-7deg);
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    box-shadow:
+        0 35px 45px rgba(0, 0, 0, 0.5),
+        10px 8px 0 -3px #54249c,
+        14px 12px 0 -5px #35166a,
+        0 0 45px rgba(168, 85, 247, 0.25);
+
+    transition:
+        transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 0.65s ease;
+}
+
+.project-card:hover .poster-design {
+    transform:
+        translate3d(0, -8px, 85px)
+        rotateY(7deg)
+        rotateX(-3deg);
+
+    box-shadow:
+        0 45px 55px rgba(0, 0, 0, 0.55),
+        10px 8px 0 -3px #54249c,
+        14px 12px 0 -5px #35166a,
+        0 0 55px rgba(168, 85, 247, 0.35);
+}
+
+/* POSTER TYPOGRAPHY */
+
+.poster-design span {
+    color: #e9d5ff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.poster-design h3 {
+    margin: 16px 0 12px;
+
+    color: white;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.poster-design p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   03 — RESUME PRESERVATION
+========================================= */
+
+/* Keep existing resume geometry and animation.
+   Only preserve its 3D rendering context. */
+
+.document-design {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* =========================================
+   MOBILE REFINEMENT
+========================================= */
+
+@media (max-width: 650px) {
+    .preview-window {
+        transform:
+            translate3d(0, 0, 45px)
+            rotateY(-8deg)
+            rotateX(4deg);
+    }
+
+    .poster-design {
+        transform:
+            translate3d(0, 0, 45px)
+            rotateY(8deg)
+            rotateX(-4deg);
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .preview-window,
+    .poster-design {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================
+   STEP 15 — SCROLL PROGRESS BAR
+========================================= */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 0%;
+    height: 3px;
+
+    z-index: 99999;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.6),
+        0 0 20px rgba(6, 182, 212, 0.3);
+
+    pointer-events: none;
+}
+
+/* =====================================
+   STEP 16 — BACK TO TOP BUTTON
+===================================== */
+
+.back-to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    background: rgba(20, 20, 30, 0.85);
+    color: #ffffff;
+
+    font-size: 25px;
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition: all 0.35s ease;
+    z-index: 9998;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #a78bfa;
+    color: #111111;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(167, 139, 250, 0.3);
+}
+
+@media (max-width: 600px) {
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+        width: 44px;
+        height: 44px;
+    }
+}
+/* =========================================
+   STEP 21 — NAVBAR BRAND IDENTITY
+========================================= */
+
+.navbar .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.navbar .logo img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.navbar .logo-text {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    color: #f5f5f7;
+}
+
+.navbar .logo-text small {
+    margin-top: 4px;
+    font-size: 0.58rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: #22d3ee;
+}
+
+.navbar .logo:hover img {
+    filter: drop-shadow(0 0 9px rgba(139, 92, 246, 0.7));
+    transition: filter 0.3s ease;
+}
+
+@media (max-width: 700px) {
+    .navbar .logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .navbar .logo-text {
+        font-size: 0.9rem;
+    }
+}

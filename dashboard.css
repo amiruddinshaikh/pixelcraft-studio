@@ -1,0 +1,1149 @@
+
+/* =====================================
+   PIXELCRAFT STUDIO — ADMIN DASHBOARD
+===================================== */
+
+:root {
+    --bg: #090810;
+    --panel: #15111e;
+    --panel-light: #1c1727;
+    --border: rgba(190, 75, 255, 0.2);
+    --text: #f5f0ff;
+    --muted: #aaa2b8;
+    --purple: #bd42f5;
+    --cyan: #29c2df;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 5%, rgba(130, 40, 190, 0.12), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =====================================
+   DASHBOARD LAYOUT
+===================================== */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================
+   SIDEBAR
+===================================== */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background: rgba(18, 13, 27, 0.96);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 65px;
+}
+
+.brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand span {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.brand small {
+    display: block;
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-top: 4px;
+}
+
+.sidebar-label,
+.eyebrow {
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sidebar-label {
+    margin: 0 0 18px 10px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-link span {
+    font-size: 18px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+    background: linear-gradient(
+        100deg,
+        rgba(178, 57, 240, 0.2),
+        rgba(41, 194, 223, 0.08)
+    );
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.website-link,
+.logout-btn {
+    padding: 12px;
+    border-radius: 9px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.website-link {
+    color: var(--cyan);
+}
+
+.logout-btn {
+    background: rgba(255, 70, 100, 0.08);
+    border: 1px solid rgba(255, 70, 100, 0.18);
+    color: #ff8297;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 70, 100, 0.16);
+}
+
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.main-content {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 35px 40px 20px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 {
+    font-size: 27px;
+    margin-top: 8px;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    color: white;
+    font-weight: 800;
+}
+
+.admin-profile strong,
+.admin-profile small {
+    display: block;
+}
+
+.admin-profile strong {
+    font-size: 13px;
+}
+
+.admin-profile small {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* =====================================
+   OVERVIEW
+===================================== */
+
+.dashboard-section {
+    margin-top: 35px;
+}
+
+.welcome-heading h2,
+.section-heading h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.welcome-heading p,
+.section-heading > div > p:last-child {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    padding: 23px;
+    background: linear-gradient(145deg, var(--panel-light), var(--panel));
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(41, 194, 223, 0.4);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: rgba(190, 65, 245, 0.14);
+    color: #d17cff;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.stat-card h3 {
+    font-size: 30px;
+    margin: 9px 0;
+}
+
+.stat-card small {
+    color: #777083;
+    font-size: 11px;
+}
+
+
+/* =====================================
+   ENQUIRIES
+===================================== */
+
+.enquiries-section {
+    margin-top: 45px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.refresh-btn {
+    padding: 11px 17px;
+    background: rgba(185, 65, 245, 0.12);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: var(--cyan);
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.refresh-btn:hover {
+    background: rgba(185, 65, 245, 0.22);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#dashboardStatus {
+    min-height: 20px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.enquiries-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.enquiries-table th {
+    padding: 17px 18px;
+    background: rgba(190, 65, 245, 0.07);
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.enquiries-table td {
+    padding: 17px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ddd5e8;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.enquiries-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted) !important;
+    padding: 35px !important;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 55px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    color: #777083;
+    font-size: 11px;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        width: calc(100% - 210px);
+        margin-left: 210px;
+        padding: 28px 22px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-label {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 10px 12px;
+    }
+
+    .sidebar-bottom {
+        flex-direction: row;
+        margin-top: 18px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 24px 17px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 23px;
+    }
+
+    .admin-profile {
+        gap: 8px;
+    }
+
+    .admin-profile strong {
+        font-size: 11px;
+    }
+
+    .admin-profile small {
+        font-size: 10px;
+    }
+
+    .profile-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+    }
+}
+
+/* =====================================
+   DASHBOARD VIEW NAVIGATION
+===================================== */
+
+.view-section {
+    display: none;
+}
+
+.view-section.active-view {
+    display: block;
+}
+
+
+/* =====================================
+   PREMIUM ENQUIRY STATUS DROPDOWN
+===================================== */
+
+.enquiries-section table select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    min-width: 135px;
+    padding: 10px 34px 10px 13px;
+
+    background-color: #21132c;
+    color: #e9d9ff;
+
+    border: 1px solid #7135a0;
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    outline: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d66bff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+
+    transition: 0.25s ease;
+}
+
+.enquiries-section table select:hover {
+    border-color: #d34cff;
+    box-shadow: 0 0 12px rgba(211, 76, 255, 0.15);
+}
+
+.enquiries-section table select:focus {
+    border-color: #28d8f5;
+    box-shadow: 0 0 0 3px rgba(40, 216, 245, 0.12);
+}
+
+.enquiries-section table select:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.enquiries-section table select option {
+    background: #190e22;
+    color: #ffffff;
+    padding: 10px;
+}
+
+
+/* =====================================
+   ENQUIRY DETAILS MODAL
+===================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 3, 12, 0.78);
+    backdrop-filter: blur(8px);
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.enquiry-modal {
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid rgba(183, 91, 255, 0.3);
+    border-radius: 18px;
+    background: #160f20;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+    animation: modalEnter 0.25s ease;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-header h2 {
+    margin-top: 6px;
+    color: #fff;
+}
+
+.modal-close {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: #251831;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.modal-close:hover {
+    background: #7135a0;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding-top: 24px;
+}
+
+.detail-item label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a99ab8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.detail-item p {
+    color: #f2eaff;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.detail-message {
+    padding: 14px;
+    min-height: 90px;
+    border: 1px solid rgba(183, 91, 255, 0.18);
+    border-radius: 10px;
+    background: #21172c;
+}
+
+@media (max-width: 500px) {
+    .enquiry-modal {
+        padding: 20px;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+/* =====================================
+   VIEW DETAILS BUTTON
+===================================== */
+
+.view-details-btn {
+    padding: 10px 17px;
+    border: 1px solid rgba(183, 91, 255, 0.45);
+    border-radius: 9px;
+    background: linear-gradient(135deg, #7135a0, #48206c);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.view-details-btn:hover {
+    background: linear-gradient(135deg, #963ed0, #6530a0);
+    border-color: #b75bff;
+    box-shadow: 0 0 18px rgba(183, 91, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.view-details-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================
+   ENQUIRY SEARCH & FILTER TOOLBAR
+===================================== */
+
+.enquiry-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 22px 0;
+    width: 100%;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
+    padding: 0 16px;
+    height: 46px;
+    background: #1b1125;
+    border: 1px solid rgba(183, 91, 255, 0.25);
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a94be8;
+    box-shadow: 0 0 15px rgba(183, 91, 255, 0.12);
+}
+
+.search-box span {
+    color: #00d9ff;
+    font-size: 21px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #91849f;
+}
+
+.status-filter {
+    min-width: 165px;
+    height: 46px;
+    padding: 0 35px 0 14px;
+    background: #21132c;
+    color: #e9d9ff;
+    border: 1px solid #7135a0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+.status-filter:focus {
+    border-color: #b75bff;
+    box-shadow: 0 0 12px rgba(183, 91, 255, 0.15);
+}
+
+.status-filter option {
+    background: #21132c;
+    color: #fff;
+}
+
+/* Status message spacing */
+#dashboardStatus {
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #00d9ff;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Mobile toolbar */
+@media (max-width: 600px) {
+    .enquiry-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box,
+    .status-filter {
+        width: 100%;
+    }
+}
+
+
+/* DELETE ENQUIRY BUTTON */
+
+.delete-enquiry-btn {
+    padding: 10px 15px;
+    margin-left: 8px;
+    border: 1px solid rgba(255, 90, 110, 0.4);
+    border-radius: 9px;
+    background: rgba(180, 40, 65, 0.15);
+    color: #ff8293;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.delete-enquiry-btn:hover {
+    background: #b92f4c;
+    color: #fff;
+    border-color: #ff8293;
+    box-shadow: 0 0 15px rgba(255, 80, 110, 0.2);
+}
+
+.delete-enquiry-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* RESPONSIVE DASHBOARD STATS */
+
+@media (max-width: 1100px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================
+   RECENT ACTIVITY
+===================================== */
+
+.recent-activity-section {
+    margin-top: 35px;
+    padding: 25px;
+    background: linear-gradient(145deg, var(--panel-light), var(--panel));
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.recent-activity-section .section-heading {
+    margin-bottom: 22px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(183, 91, 255, 0.12);
+    border-radius: 11px;
+    transition: 0.3s ease;
+}
+
+.activity-item:hover {
+    border-color: rgba(183, 91, 255, 0.4);
+    transform: translateX(4px);
+}
+
+.activity-info strong {
+    color: #f2eaff;
+    font-size: 14px;
+}
+
+.activity-info p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.activity-info small {
+    display: block;
+    margin-top: 6px;
+    color: #82758f;
+    font-size: 11px;
+}
+
+.activity-status {
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: rgba(183, 91, 255, 0.12);
+    color: #d18aff;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+    .recent-activity-section {
+        padding: 17px;
+    }
+
+    .activity-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =====================================
+   EXPORT CSV BUTTON
+===================================== */
+
+.export-btn {
+    min-width: 135px;
+    height: 46px;
+    padding: 0 17px;
+    border: 1px solid rgba(0, 217, 255, 0.35);
+    border-radius: 10px;
+    background: rgba(0, 217, 255, 0.08);
+    color: #00d9ff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.export-btn:hover {
+    background: rgba(0, 217, 255, 0.18);
+    border-color: #00d9ff;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.export-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .export-btn {
+        width: 100%;
+    }
+}
+
+
+/* =====================================
+   WHATSAPP & EMAIL QUICK ACTIONS
+===================================== */
+
+.whatsapp-action-btn,
+.email-action-btn {
+    padding: 10px 15px;
+    margin: 3px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+/* WHATSAPP */
+.whatsapp-action-btn {
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    color: #25d366;
+}
+
+.whatsapp-action-btn:hover:not(:disabled) {
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
+    transform: translateY(-2px);
+}
+
+/* EMAIL */
+.email-action-btn {
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    color: #00d9ff;
+}
+
+.email-action-btn:hover:not(:disabled) {
+    background: #00aeca;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* DISABLED */
+.whatsapp-action-btn:disabled,
+.email-action-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   ENQUIRIES TABLE - ALIGNMENT FIX
+===================================== */
+
+/* Give the table enough room */
+.enquiries-table {
+    min-width: 1100px;
+    table-layout: auto;
+}
+
+/* Keep message content from stretching the table */
+.enquiries-table td:nth-child(5) {
+    max-width: 280px;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+/* Give action buttons their own space */
+.enquiries-table th:last-child,
+.enquiries-table td:last-child {
+    min-width: 350px;
+    white-space: nowrap;
+}
+
+/* Keep action buttons aligned */
+.enquiries-table td:last-child button {
+    display: inline-block;
+    margin: 3px;
+    vertical-align: middle;
+}
+
+
+/* =====================================
+   MOBILE ENQUIRIES - CARD LAYOUT
+===================================== */
+
+@media (max-width: 600px) {
+
+    .table-container {
+        overflow-x: hidden;
+    }
+
+    .enquiries-table {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .enquiries-table thead {
+        display: none;
+    }
+
+    .enquiries-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .enquiries-table tbody tr {
+        display: block;
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .enquiries-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .enquiries-table td {
+        display: grid;
+        grid-template-columns: 85px minmax(0, 1fr);
+        align-items: start;
+        gap: 10px;
+        padding: 12px 0;
+        border-top: none;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    .enquiries-table td:nth-child(1)::before { content: "CLIENT"; }
+    .enquiries-table td:nth-child(2)::before { content: "SERVICE"; }
+    .enquiries-table td:nth-child(3)::before { content: "BUDGET"; }
+    .enquiries-table td:nth-child(4)::before { content: "DATE"; }
+    .enquiries-table td:nth-child(5)::before { content: "MESSAGE"; }
+    .enquiries-table td:nth-child(6)::before { content: "STATUS"; }
+
+    .enquiries-table td:not(:last-child)::before {
+        color: var(--cyan);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .5px;
+    }
+
+    .enquiries-table td:last-child {
+        display: block;
+        min-width: 0;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
+    }
+
+    .enquiries-table td:last-child::before {
+        content: "ACTIONS";
+        display: block;
+        margin-bottom: 12px;
+        color: var(--cyan);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .5px;
+    }
+
+    .enquiries-table td:last-child button {
+        margin: 3px;
+    }
+}
+
